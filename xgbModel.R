@@ -80,7 +80,8 @@ full.Prod.Returns %>% lapply(is.na) %>%sapply(any)
 
 #filling all Rows of NA's with dummy value
 #missing user date of birth are replaced by mode 
-full.Prod.Returns$user_dob[is.na(full.Prod.Returns$user_dob)] = names(table(full.Prod.Returns$user_dob))[table(full.Prod.Returns$user_dob) == max(table(full.Prod.Returns$user_dob))]
+full.Prod.Returns$user_dob[is.na(full.Prod.Returns$user_dob)] = 
+names(table(full.Prod.Returns$user_dob))[table(full.Prod.Returns$user_dob) == max(table(full.Prod.Returns$user_dob))]
 
 #missing delivery_date are replaced by a dummy date
 full.Prod.Returns$delivery_date[is.na(full.Prod.Returns$delivery_date)] = "2099-31-12"
